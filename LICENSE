@@ -1,0 +1,33 @@
+GEOCITY API LICENSE AGREEMENT
+
+Copyright (c) 2025 Aliaksandr Ivanou <alexivanou@gmail.com>
+
+1. NON-COMMERCIAL LICENSE
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to use, copy, modify, and merge the Software, provided that such use is for
+NON-COMMERCIAL PURPOSES only.
+
+"Non-Commercial Purposes" are defined as:
+(a) Personal use for study, research, or hobby projects;
+(b) Educational use in schools, universities, or training courses;
+(c) Use by non-profit organizations exclusively for charitable purposes;
+(d) Development and testing environments that are not part of a commercial product delivery pipeline.
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions
+of the Software.
+
+2. COMMERCIAL LICENSE
+Any use of the Software for COMMERCIAL PURPOSES is strictly prohibited without a separate commercial license agreement.
+
+"Commercial Purposes" include, but are not limited to:
+(a) Use in any commercial product or service (SaaS, mobile apps, desktop software);
+(b) Use in a for-profit business environment or internal business tools;
+(c) Any use that directly or indirectly generates revenue.
+
+To obtain a Commercial License, please contact the author at: <alexivanou@gmail.com>.
+
+3. DISCLAIMER
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
