@@ -1,0 +1,163 @@
+openapi: 3.0.0
+info:
+  title: GeoCity API
+  description: High-performance API for city data and geospatial queries.
+  version: 1.0.0
+  contact:
+    email: alexivanou@gmail.com
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /api/v1/suggest:
+    get:
+      summary: Suggest cities
+      description: Search for cities by name. Returns results localized to the requested language.
+      parameters:
+        - in: q3uery
+          name: q
+          schema:
+            type: string
+            minLength: 2
+          required: true
+          description: Partial name of the city (e.g., "Berl")
+        - in: query
+          name: lang
+          schema:
+            type: string
+            default: en
+          description: ISO-639-1 language code (e.g., "de", "en")
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 10
+          description: Max number of results
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuggestResponse'
+
+  /api/v1/nearest:
+    get:
+      summary: Find nearest city
+      description: Find the closest city to the given GPS coordinates.
+      parameters:
+        - in: query
+          name: lat
+          schema:
+            type: number
+            format: double
+          required: true
+          description: Latitude
+        - in: query
+          name: lon
+          schema:
+            type: number
+            format: double
+          required: true
+          description: Longitude
+        - in: query
+          name: lang
+          schema:
+            type: string
+            default: en
+      responses:
+        '200':
+          description: Found city
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NearestCityResponse'
+        '404':
+          description: No city found within range
+
+  /api/v1/city/{id}:
+    get:
+      summary: Get city details
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: GeoName ID of the city
+        - in: query
+          name: lang
+          schema:
+            type: string
+            default: en
+      responses:
+        '200':
+          description: City details
+          content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/CityDetailResponse'
+        '404':
+          description: City not found
+
+components:
+  schemas:
+    SuggestResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CityResult'
+
+    CityResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 2950159
+        name:
+          type: string
+          example: "Berlin"
+        country:
+          type: string
+          example: "Germany"
+        country_code:
+          type: string
+          example: "DE"
+        population:
+          type: integer
+          example: 3644826
+
+    CityDetailResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        country:
+          type: string
+        coordinates:
+          type: object
+          properties:
+            lat:
+              type: number
+            lon:
+              type: number
+        elevation:
+          type: integer
+        timezone:
+          type: string
+        population:
+          type: integer
+
+    NearestCityResponse:
+      type: object
+      properties:
+        city:
+          $ref: '#/components/schemas/CityDetailResponse'
+        distance_km:
+          type: number
+          example: 12.5

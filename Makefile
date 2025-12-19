@@ -68,6 +68,4 @@ clean:
 	@rm -rf bin/
 	@rm -f coverage.out coverage.html
 
-collect:
-	CGO_LDFLAGS="-lm" go run collect.go
 	
